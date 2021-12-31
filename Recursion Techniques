@@ -1,0 +1,33 @@
+// Technique to print only one answer out of all like here i am printing one subsequence only that satisfies given sum in an array
+import java.util.*;
+
+public class Main {
+
+
+public static boolean fun(int[] arr,int i, ArrayList<Integer> al,int sum,int ssf){
+ if(i==arr.length){
+     if(ssf==sum){
+    System.out.println(al);
+     return true;
+     }
+     return false;
+ }
+ al.add(arr[i]);
+boolean f1 = fun(arr,i+1,al,sum,ssf+arr[i]);
+if(f1){
+    return true;
+}
+al.remove(al.size()-1);
+boolean f2 = fun(arr,i+1,al,sum,ssf);
+if(f2){
+    return true;
+}
+  return false;
+}
+  public static void main(String[] args) {
+ int[] arr = {1,2,1};
+ int sum = 2;
+ ArrayList<Integer> al = new ArrayList<>();
+fun(arr,0,al,sum,0);
+  }
+}
