@@ -1,4 +1,28 @@
-// Technique to print only one answer out of all like here i am printing one subsequence only that satisfies given sum in an array
+----->  // Technique to print all answers in base case itself like here i am printing subsequences only that satisfies given sum in an array
+
+public static void fun(int[] arr,int i, ArrayList<Integer> al,int sum,int ssf){  //ssf->sum so far
+ if(i==arr.length){
+     if(ssf==sum)
+     System.out.println(al);
+     return;
+ }
+ al.add(arr[i]);
+fun(arr,i+1,al,sum,ssf+arr[i]);
+al.remove(al.size()-1);
+fun(arr,i+1,al,sum,ssf);
+  
+}
+  public static void main(String[] args) {
+ int[] arr = {1,2,1};
+ int sum = 2;
+ ArrayList<Integer> al = new ArrayList<>();
+ fun(arr,0,al,sum,0);
+  }
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---->// Technique to print only one answer out of all like here i am printing one subsequence only that satisfies given sum in an array
 import java.util.*;
 
 public class Main {
@@ -31,3 +55,29 @@ if(f2){
 fun(arr,0,al,sum,0);
   }
 }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----> // Technique to give count of something in recursion like here i am given a count of number of subsequences that satisfies sum equal to k
+import java.util.*;
+
+public class Main {
+
+
+public static int fun(int[] arr,int i,int sum,int ssf){
+ if(i==arr.length){
+     if(ssf==sum){
+    return 1;
+     }
+     return 0;
+ }
+int f1 = fun(arr,i+1,sum,ssf+arr[i]);
+int f2 = fun(arr,i+1,sum,ssf);
+  return f1+f2;
+}
+  public static void main(String[] args) {
+ int[] arr = {1,2,1};
+ int sum = 2;
+System.out.println(fun(arr,0,sum,0));
+  }
+}
+
