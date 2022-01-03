@@ -81,3 +81,12 @@ System.out.println(fun(arr,0,sum,0));
   }
 }
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---> Technique for excluding duplicates in subsets or subsequences in recursion instead of using recursion in for loop also this should be apply after sorting the array
+
+
+while (idx < arr.length && arr[idx - 1] == arr[idx])
+            idx++;
+
+//exclusion call ----> you know what i mean           
+fun(arr,idx,al)
